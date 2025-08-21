@@ -24,92 +24,90 @@ First, install the necessary development libraries.
 ```bash
 sudo apt update
 sudo apt install libsdl2-dev libsdl2-ttf-dev zlib1g-dev build-essential
+```
 
-Fedora
-
-Bash
-
+### Fedora
+```bash
 sudo dnf install SDL2-devel SDL2_ttf-devel zlib-devel gcc make
+```
 
-Arch Linux
-
-Bash
-
+### Arch Linux
+```bash
 sudo pacman -S sdl2 sdl2_ttf zlib base-devel
+```
 
-Compiling the Programs
+## Compiling the Programs
 
 Once the libraries are installed, you can compile both programs from their respective C files using gcc.
 
-Zdzeg Viewer
-
-Save the code in a file named ZdzegViewer.c and run:
-Bash
-
+### Zdzeg Viewer
+Save the code in a file named `ZdzegViewer.c` and run:
+```bash
 gcc -o ZdzegViewer ZdzegViewer.c `pkg-config --cflags --libs sdl2 SDL2_ttf` -lz
+```
 
-Zdzeg Encoder
-
-Save the encoder source code in a file named ZdzegEncoder.c and run:
-Bash
-
+### Zdzeg Encoder
+Save the encoder source code in a file named `ZdzegEncoder.c` and run:
+```bash
 gcc -o ZdzegEncoder ZdzegEncoder.c `pkg-config --cflags --libs sdl2 SDL2_ttf` -lz
+```
 
-Using the Zdzeg Viewer
+## Using the Zdzeg Viewer
 
-Run the viewer and provide the path to the folder containing your .zdzeg files:
-Bash
-
+Run the viewer and provide the path to the folder containing your `.zdzeg` files:
+```bash
 ./ZdzegViewer /path/to/your/folder
+```
 
 Example:
-Bash
-
+```bash
 ./ZdzegViewer images
+```
 
-Viewer Controls
+### Viewer Controls
+```text
+    Left / Right Arrow: Move between images.
+    Up / Down Arrow:
+        Use these to select a folder or file.
+        When viewing an image, they zoom in and out.
+    Enter: Opens the selected folder.
+    X: Works as a back button to go up one folder level.
+    R: Rotates the image 90° clockwise.
+    F: Toggles full-screen.
+    H: Toggles "fit-to-screen" view.
+    W A S D: Pans the image.
+    Q or Esc: Quit.
+```
 
-Plaintext
+## Using the Zdzeg Encoder
 
-Left / Right Arrow: Previous / Next image
-R: Rotate 90° clockwise
-F: Toggle full-screen
-H: Toggle fit-to-screen
-W A S D: Pan when zoomed in
-Up / Down Arrow: Zoom in / out
-Q or Esc: Quit
-
-Using the Zdzeg Encoder
-
-The encoder converts images into .zdzeg format.  
+The encoder converts images into `.zdzeg` format.  
 It takes an input file or a folder, a number of color levels, and a color channel.
 
-    Color levels: 4, 8, 16, 32  (Don't go lower than 8 if you want decent quality)  
-
-    Color channels: red, green, blue, bw, full  
-
-    Batch mode: if you provide a folder instead of a single file, all images in the folder will be converted
+- Color levels: 4, 8, 16, 32  (Don't go lower than 8 if you want decent quality)  
+- Color channels: red, green, blue, bw, full  
+- **Batch mode**: if you provide a folder instead of a single file, all images in the folder will be converted
 
 Run the encoder like this:
-Bash
-
+```bash
 ./ZdzegEncoder <input_image_file_or_folder> <levels> <channel>
+```
 
 Examples:
 
 Single file:
-Bash
-
+```bash
 ./ZdzegEncoder my_picture.png 16 red
+```
 
 Batch folder:
-Bash
-
+```bash
 ./ZdzegEncoder images/ 16 full
+```
 
 This will generate files such as:
-Plaintext
-
+```text
 my_picture_16_red.zdzeg
 other_image_16_full.zdzeg
 ...
+
