@@ -13,7 +13,7 @@
 - Currently has **no real practical use**
 - Extremely limited functionality; mostly for experimentation and testing
 - May break, crash, **could waste your time**, or do nothing useful
-- **Very experimental**: only tested on Arch Linux with an i7-7200U CPU, GTX 950M GPU, 8GB RAM, and a slow 1TB HDD
+- **Very experimental**: only tested on Arch Linux with an i5-7200U CPU, GTX 950M GPU, 8GB RAM, and a slow 1TB HDD
 
 ## Local Compilation and Installation
 
